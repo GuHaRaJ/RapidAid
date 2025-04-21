@@ -1,4 +1,4 @@
-# RapidAid - Drone-Based Telemedicine (Frontend)
+# RapidAid - Drone-Based Telemedicine
 
 **Status:** Under Development
 
