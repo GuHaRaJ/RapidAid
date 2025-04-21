@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - RapidAid</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Additional styles for the contact page */
+        .contact-page {
+            padding: 50px 20px;
+            text-align: center;
+            background: linear-gradient(to bottom, #F7F9FA, #FFFFFF);
+        }
+
+        .contact-page h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #2C3E50;
+        }
+
+        .contact-subtext {
+            font-size: 1.2rem;
+            color: #7F8C8D;
+            margin-bottom: 30px;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        form#contact-form {
+            background-color: #FFF;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .contact-details {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ECF0F1;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            text-align: left;
+        }
+
+        .contact-details h3 {
+            font-size: 1.5rem;
+            color: #2C3E50;
+            margin-bottom: 10px;
+        }
+
+        .contact-details p {
+            font-size: 1rem;
+            color: #34495E;
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .social-icons a {
+            color: #34495E;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #1ABC9C;
+        }
+
+        /* Form Input Fields */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        form#contact-form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #34495E;
+        }
+
+        form#contact-form input,
+        form#contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #BDC3C7;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        form#contact-form input:focus,
+        form#contact-form textarea:focus {
+            border-color: #1ABC9C;
+            outline: none;
+        }
+
+        form#contact-form textarea {
+            resize: none;
+        }
+
+        form#contact-form .btn {
+            background-color: #1ABC9C;
+            color: #FFF;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            /* Full width for the button */
+        }
+
+        form#contact-form .btn:hover {
+            background-color: #16A085;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">RapidAid</div>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('cart') }}">Cart</a></li>
+            
+        </ul>
+    </nav>
+
+    <main class="contact-page">
+        <h2>Contact Us</h2>
+        <p class="contact-subtext">Have questions, concerns, or feedback? We’d love to hear from you!</p>
+
+        <div class="contact-container">
+            <!-- Contact Form -->
+            <form id="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" placeholder="Write your message here..." rows="5"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+
+            <!-- Contact Details -->
+            <div class="contact-details">
+                <h3 style="font-size: 2rem;">Our Office</h3>
+                <p style="font-size: 1.2rem;"><strong>Address:</strong> RapidAid HQ, Rukmini Knowledge Park, Yelahanka, Kattigenahalli, Bengaluru, Sathanur, Karnataka 560064</p>
+                <p style="font-size: 1.2rem;"><strong>Email:</strong> support@rapidaid.com</p>
+                <p style="font-size: 1.2rem;"><strong>Phone:</strong> +91 98765 43210</p>
+                <!-- Follow Us -->
+                <h3 style="font-size: 2rem;">Follow Us</h3>
+                <div class="social-icons">
+                    <div class="social-icon">
+                        <a href="https://www.facebook.com/yourprofile" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                    <div class="social-icon">
+                        <a href="https://twitter.com/yourprofile" target="_blank">
+                            <i class="fa-brands fa-square-x-twitter"></i> <!-- Updated Twitter icon -->
+                        </a>
+                    </div>
+                    <div class="social-icon">
+                        <a href="https://www.instagram.com/yourprofile" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="social-icon">
+                        <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            
+                <!-- Add Font Awesome CDN link in the head section -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+            
+            </div>
+            
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 RapidAid. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

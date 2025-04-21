@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RapidAid - Medicine Delivery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">RapidAid</div>
+        <ul>
+            <li><a href="#medicines">Medicines</a></li>
+            <li><a href="{{ url_for('cart') }}">Cart</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-text">
+            <h1>Get Medicines Delivered <br> Directly to Your Doorstep</h1>
+            <p>Reimagining Delivery, Redefining Speed.</p>
+            <a href="#medicines" class="btn">Shop Now</a>
+        </div>
+    </header>
+
+    <!-- Medicines Section -->
+    <section id="medicines" class="medicines">
+        <h2>Available Medicines</h2>
+        <div class="medicine-container">
+            <!-- Medicine Cards -->
+            <div class="medicine-card">
+                <img src="{{ url_for('static', filename='pics/medicines/box-first-aid-kit.jpg') }}" alt="First-Aid Kit">
+                <h3>First-Aid</h3>
+                <p>Fast solution for injuries</p>
+                <span>₹150.00</span>
+                <button onclick="addToCart('First-Aid', 150)">Add to Cart</button>
+            </div>
+
+            <div class="medicine-card">
+                <img src="https://images.ctfassets.net/umpxkz97ty8t/aIwP4Ll5m4jYR3qAlaqGB/901821b7dc61e1fdd2043acfa46ff81e/vicks-india-veer.jpg" alt="Action 500">
+                <h3>Action 500</h3>
+                <p>Relief from body aches</p>
+                <span>₹63.20</span>
+                <button onclick="addToCart('Action 500', 63.20)">Add to Cart</button>
+            </div>
+
+            <div class="medicine-card">
+                <img src="{{ url_for('static', filename='pics/medicines/vaporub.jpg') }}" alt="Vicks VapoRub">
+                <h3>VapoRub</h3>
+                <p>Cough and cold relief</p>
+                <span>₹310.00</span>
+                <button onclick="addToCart('Vicks VapoRub', 310)">Add to Cart</button>
+            </div>
+
+            <div class="medicine-card">
+                <img src="{{ url_for('static', filename='pics/medicines/str0731_2-_1.webp') }}" alt="Stepsils">
+                <h3>Stepsils</h3>
+                <p>Relief from sore throat pain</p>
+                <span>₹80.00</span>
+                <button onclick="addToCart('Stepsils', 80)">Add to Cart</button>
+            </div>
+
+            <div class="medicine-card">
+                <img src="{{ url_for('static', filename='pics/medicines/gastrina-tab-dabur-1.jpg') }}" alt="Dabur Gastrina">
+                <h3>Dabur Gastrina</h3>
+                <p>Relief from hyperacidity</p>
+                <span>₹80.00</span>
+                <button onclick="addToCart('Dabur Gastrina', 80)">Add to Cart</button>
+            </div>
+
+            <div class="medicine-card">
+                <img src="{{ url_for('static', filename='pics/medicines/saridon.jpg') }}" alt="Saridon Advanced">
+                <h3>Saridon Advanced</h3>
+                <p>Relief from headaches</p>
+                <span>₹70.00</span>
+                <button onclick="addToCart('Saridon Advanced', 70)">Add to Cart</button>
+            </div>
+
+            <div class="medicine-card">
+                <img src="{{ url_for('static', filename='pics/medicines/volini.webp') }}" alt="Volini Gel">
+                <h3>Volini Gel</h3>
+                <p>Muscle pain relief</p>
+                <span>₹120.00</span>
+                <button onclick="addToCart('Volini Gel', 120)">Add to Cart</button>
+            </div>
+
+            <div class="medicine-card">
+                <img src="{{ url_for('static', filename='pics/medicines/asthalin-inhaler-500x500.webp') }}" alt="Inhalation">
+                <h3>Inhalation</h3>
+                <p>Controls asthma</p>
+                <span>₹180.00</span>
+                <button onclick="addToCart('Inhalation', 180)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 RapidAid. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

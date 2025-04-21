@@ -1,0 +1,797 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navigation Bar */
+/* nav {
+    background-color: #1F2A35;
+    color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav .logo {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+} */
+
+nav {
+    background-color: #1F2A35;
+    color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav .logo {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: #FFF; /* Main text color */
+    text-shadow: 
+        0 0 5px rgba(0, 201, 167, 0.6), /* Light glow */
+        0 0 10px rgba(0, 201, 167, 0.6),
+        0 0 15px rgba(0, 201, 167, 0.8), 
+        0 0 20px rgba(0, 201, 167, 0.8), 
+        0 0 30px rgba(0, 201, 167, 1); /* Stronger glow */
+    transition: text-shadow 0.3s ease-in-out; /* Smooth transition */
+}
+
+nav .logo:hover {
+    text-shadow: 
+        0 0 10px rgba(0, 201, 167, 0.8), 
+        0 0 20px rgba(0, 201, 167, 1), 
+        0 0 30px rgba(0, 201, 167, 1.2), 
+        0 0 40px rgba(0, 201, 167, 1.2); /* Intensified glow on hover */
+}
+
+
+/* nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    color: #00C9A7;
+} */
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-left: 25px; /* Space between menu items */
+}
+
+nav ul li a {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem; /* Font size for links */
+    padding: 10px 15px; /* Padding for links */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, text-shadow 0.3s; /* Smooth transition for background and shadow */
+}
+
+nav ul li a:hover {
+    background-color: rgba(0, 201, 167, 0.3); /* Light background on hover */
+    text-shadow: 
+        0 0 5px rgba(0, 201, 167, 0.6), /* Light glow */
+        0 0 10px rgba(0, 201, 167, 0.6), 
+        0 0 15px rgba(0, 201, 167, 0.8), 
+        0 0 20px rgba(0, 201, 167, 0.8), 
+        0 0 30px rgba(0, 201, 167, 1); /* Stronger glow */
+}
+
+
+/* Hero Section */
+.hero {
+    background-image: url('../static/pics/medicines/bg_hirmbanner.png');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFF;
+    filter: brightness(90%);
+    position: relative;
+}
+
+.hero:hover {
+    filter: brightness(100%);
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+}
+
+/* .hero .btn {
+    background-color: #00C9A7;
+    color: #FFF;
+    padding: 15px 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: transform 0.3s, background-color 0.3s;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.hero .btn:hover {
+    background-color: #00B193;
+    transform: scale(1.05);
+} */
+
+.btn {
+    background-color: #00C9A7; /* Teal button color */
+    color: #FFF; /* White text color */
+    padding: 15px 30px; /* Vertical and horizontal padding */
+    border: none; /* No border */
+    border-radius: 50px; /* Rounded button */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 1rem; /* Font size */
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+    display: inline-block; /* Make it inline-block to apply padding */
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+    box-shadow: 0 0 10px rgba(0, 201, 167, 0.8), /* Soft glow */
+                0 0 20px rgba(0, 201, 167, 1); /* Stronger glow */
+}
+
+.btn:hover {
+    background-color: #00B193; /* Darker teal on hover */
+    transform: scale(1.05); /* Slightly grow the button on hover */
+    box-shadow: 0 0 15px rgba(0, 201, 167, 1), /* Stronger glow on hover */
+                0 0 30px rgba(0, 201, 167, 1); /* Even stronger glow */
+}
+
+
+/* Medicines Section */
+.medicines {
+    padding: 50px 20px;
+    text-align: center;
+    background: linear-gradient(to bottom, #ECF0F1, #FFFFFF);
+}
+
+.medicines h2 {
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    color: #34495E;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.medicine-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.medicine-card {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 270px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.medicine-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.medicine-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.medicine-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: #2C3E50;
+}
+
+.medicine-card p {
+    margin-bottom: 10px;
+    color: #7F8C8D;
+    font-size: 0.95rem;
+}
+
+.medicine-card span {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #1ABC9C;
+}
+
+.medicine-card button {
+    background-color: #3498DB;
+    color: #FFF;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.medicine-card button:hover {
+    background-color: #2980B9;
+    transform: scale(1.05);
+}
+
+/* Cart Section */
+.cart-heading {
+    font-size: 2rem;
+    color: #2C3E50;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.cart-container {
+    max-width: 800px;
+    margin: 0 auto; /* Center the cart */
+    padding: 20px;
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #ECF0F1;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item p {
+    font-size: 1rem;
+    color: #2C3E50;
+    margin: 0;
+}
+
+.cart-item button {
+    background-color: #E74C3C;
+    color: #FFF;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cart-item button:hover {
+    background-color: #C0392B;
+}
+
+.cart-total {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2C3E50;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Center the Proceed to Checkout Button */
+.proceed-btn {
+    margin-top: 30px;
+    background-color: #1ABC9C;
+    color: #FFF;
+    border: none;
+    padding: 12px 30px;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.proceed-btn:hover {
+    background-color: #16A085;
+}
+
+/* Empty Cart Message */
+.cart-container p {
+    font-size: 1.2rem;
+    color: #7F8C8D;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Footer Section */
+footer {
+    background-color: #1F2A35;
+    color: #FFF;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Checkout Page */
+.checkout-page {
+    padding: 40px 20px;
+    background: linear-gradient(to bottom, #ECF0F1, #FFFFFF);
+    min-height: 100vh;
+}
+
+.checkout-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #FFF;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-heading {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #2C3E50;
+    margin-bottom: 30px;
+}
+
+.checkout-form .form-group {
+    margin-bottom: 20px;
+}
+
+.checkout-form label {
+    display: block;
+    font-size: 1rem;
+    color: #2C3E50;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #BDC3C7;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #2C3E50;
+    background-color: #F8F9F9;
+    transition: border-color 0.3s;
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus {
+    outline: none;
+    border-color: #3498DB;
+}
+
+.checkout-form .checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkout-form .checkbox-group input {
+    margin-right: 10px;
+}
+
+.checkout-form .checkbox-group label {
+    font-size: 0.95rem;
+    color: #2C3E50;
+}
+
+.checkout-form .checkbox-group label a {
+    color: #3498DB;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.checkout-form .checkbox-group label a:hover {
+    color: #1ABC9C;
+}
+
+.checkout-btn {
+    width: 100%;
+    background-color: #1ABC9C;
+    color: #FFF;
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.checkout-btn:hover {
+    background-color: #16A085;
+    transform: scale(1.02);
+}
+
+
+
+
+/* Contact Page Styles */
+.contact-page {
+    padding: 50px 20px;
+    text-align: center;
+    background: linear-gradient(to bottom, #F7F9FA, #FFFFFF);
+}
+
+.contact-page h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #2C3E50;
+}
+
+.contact-subtext {
+    font-size: 1.2rem;
+    color: #7F8C8D;
+    margin-bottom: 30px;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+form#contact-form {
+    background-color: #FFF;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.contact-details {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #ECF0F1;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.contact-details h3 {
+    font-size: 1.5rem;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+
+.contact-details p {
+    font-size: 1rem;
+    color: #34495E;
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a img {
+    width: 40px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.1);
+}
+
+/* Form Input Fields */
+.form-group {
+    margin-bottom: 15px;
+}
+
+form#contact-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #34495E;
+}
+
+form#contact-form input,
+form#contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #BDC3C7;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+form#contact-form textarea {
+    resize: none;
+}
+
+form#contact-form .btn {
+    background-color: #1ABC9C;
+    color: #FFF;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+form#contact-form .btn:hover {
+    background-color: #16A085;
+}
+
+
+/* Alert Styles */
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.5s forwards; /* Slide in animation */
+    z-index: 1000;
+}
+
+/* Fade Out Effect */
+.alert.fade-out {
+    animation: fadeOut 1s forwards; /* Fade out animation duration increased */
+}
+
+/* Slide In Animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Fade Out Animation */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Copy Button Style */
+.alert button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: white;
+    color: #28a745;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.alert button:hover {
+    background-color: #e6e6e6; /* Change background on hover */
+}
+
+
+.cart-summary {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.cart-summary table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-summary th, .cart-summary td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-summary tfoot td {
+    font-weight: bold;
+}
+
+
+
+/*popup*/
+
+
+/* Pop-up styles */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background with opacity */
+    overflow: auto; /* Enable scroll if needed */
+    animation: fadeIn 0.3s; /* Fade in effect */
+}
+
+.popup-content {
+    background-color: #fff;
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Full width */
+    max-width: 600px; /* Max width for larger screens */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    animation: slideIn 0.3s; /* Slide in effect */
+}
+
+.close-btn {
+    color: #aaa;
+    float: right; /* Float to the right */
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #e74c3c; /* Change color on hover */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* social media...*/
+
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+.social-icon {
+    text-align: center;
+    margin: 0 15px;
+}
+
+.social-icon a {
+    text-decoration: none;
+    color: #34495E; /* Icon and text color */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the icon and text */
+}
+
+.social-icon i {
+    font-size: 30px; /* Icon size */
+    margin-top: 3px; /* Space between text and icon */
+    transition: color 0.3s;
+}
+
+.social-icon a:hover i {
+    color: #1ABC9C; /* Change icon color on hover */
+}
+
+.social-icon a:hover span {
+    color: #1ABC9C; /* Change text color on hover */
+}
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - RapidAid</title>
+    <!-- Link to stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">RapidAid</div>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Cart Section -->
+    <main>
+        <h2 class="cart-heading">Your Cart</h2>
+        <!-- Cart Items will be dynamically loaded here -->
+        <div class="cart-container"></div>
+        <p class="cart-total">Total: ₹0.00</p>
+        <button class="proceed-btn" onclick="window.location.href='{{ url_for('checkout') }}';">Proceed to Checkout</button>
+
+
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 RapidAid. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

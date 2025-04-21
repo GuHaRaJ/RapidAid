@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - RapidAid</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+
+    <style>
+        /* Additional Styles for Order Confirmation Page */
+        .confirmation-page {
+            padding: 50px 20px;
+            background: linear-gradient(to bottom, #ECF0F1, #FFFFFF);
+            min-height: 100vh;
+        }
+
+        .confirmation-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #FFF;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .confirmation-container h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #2C3E50;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #1ABC9C;
+            padding-bottom: 10px;
+        }
+
+        .confirmation-container p {
+            font-size: 1rem;
+            color: #34495E;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .order-details {
+            margin-top: 20px;
+        }
+
+        .order-details h3 {
+            font-size: 1.5rem;
+            color: #2C3E50;
+            margin-bottom: 15px;
+        }
+
+        .order-details p {
+            font-size: 1rem;
+            color: #34495E;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #1ABC9C;
+            color: white;
+        }
+
+        table tfoot td {
+            font-weight: bold;
+            background-color: #f1f1f1;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">RapidAid</div>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('cart') }}">Cart</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main class="confirmation-page">
+        <div class="confirmation-container">
+            <h2>Order Confirmation</h2>
+            <p>Thank you for your order! Here are your order details:</p>
+
+            <div class="order-details">
+                <h3>Order ID: {{ order_id }}</h3>
+                <p><strong>Name:</strong> {{ name }}</p>
+                <p><strong>Email:</strong> {{ email }}</p>
+                <p><strong>Phone:</strong> {{ phone }}</p>
+                <p><strong>Address:</strong> {{ address }}</p>
+                <p><strong>Pincode:</strong> {{ pincode }}</p>
+
+                <h3>Order Summary</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart_items %}
+                        <tr>
+                            <td>{{ item.name }}</td>
+                            <td>₹{{ item.price }}</td>
+                            <td>1</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2"><strong>Total:</strong></td>
+                            <td>₹{{ total_price }}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <p style="margin-top: 20px;">Your order will be delivered shortly. For any queries, please contact our
+                support team.</p>
+        </div>
+
+        <script src="https://www.unpkg.com/olamaps-web-sdk@latest/dist/olamaps-web-sdk.umd.js"></script>
+        <script>
+            import { OlaMaps } from 'olamaps-web-sdk'
+            const olaMaps = new OlaMaps({
+                apiKey: [apiKey],
+            })
+            const myMap = olaMaps.init({
+                style: "https://api.olamaps.io/tiles/vector/v1/styles/default-light-standard/style.json",
+                container: 'map',
+                center: [77.61648476788898, 12.931423492103944],
+                zoom: 15,
+            })
+        </script>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 RapidAid. All rights reserved.</p>
+    </footer>
+</body>
+
+
+</html>

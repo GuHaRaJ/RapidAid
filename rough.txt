@@ -1,0 +1,25 @@
+EhxOxQfwqHREJc95ScaOuljTOue-D5z
+
+
+
+projectid: 6cf78250-7e63-41c3-9197-9f72ff4ab1d6
+
+
+
+apikey: 3132e6z55KyvWEZVGrBcpIg7VhpCFj2Fe2yExXVU
+
+clientID: 94291825-cfab-42f8-a3a7-e16ffb28b77f
+
+client Secret: vCTPLo7LOx3k6qi4zVAYyalJ3j3JpBZx
+
+
+
+to access db: sqlite3 instance/orders.db
+
+-> .tables
+select * from "order";
+
+
+
+npm install olamaps-web-sdk
+

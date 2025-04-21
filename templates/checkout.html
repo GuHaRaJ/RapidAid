@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - RapidAid</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <style>
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transform: scale(0.9);
+            animation: scaleUp 0.3s ease-in-out forwards;
+        }
+        .modal-content h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .modal-content .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .modal-content .close:hover {
+            color: #333;
+        }
+        .modal-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+        .modal-content ol {
+            padding-left: 20px;
+            color: #555;
+        }
+        .modal-content ol li {
+            margin-bottom: 10px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes scaleUp {
+            from { transform: scale(0.9); }
+            to { transform: scale(1); }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+            // Populate hidden fields for form submission
+            document.getElementById('cart-items').value = JSON.stringify(cart);
+            document.getElementById('total-price').value = total.toFixed(2);
+
+            // Update cart summary on the page
+            const cartSummaryContainer = document.getElementById('cart-summary');
+            if (cart.length === 0) {
+                cartSummaryContainer.innerHTML = '<p>Your cart is empty!</p>';
+                return;
+            }
+
+            let cartHTML = '<table><thead><tr><th>Item</th><th>Price</th><th>Quantity</th></tr></thead><tbody>';
+            cart.forEach(item => {
+                cartHTML += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>₹${item.price.toFixed(2)}</td>
+                        <td>1</td>
+                    </tr>
+                `;
+            });
+            cartHTML += `<tfoot><tr><td colspan="2"><strong>Total:</strong></td><td>₹${total.toFixed(2)}</td></tr></tfoot>`;
+            cartHTML += '</tbody></table>';
+            cartSummaryContainer.innerHTML = cartHTML;
+
+            // Modal functionality
+            const termsLink = document.querySelector('.terms a');
+            const modal = document.getElementById('terms-modal');
+            const closeModal = document.querySelector('.modal-content .close');
+
+            termsLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.style.display = 'flex';
+            });
+
+            closeModal.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="logo">RapidAid</div>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('cart') }}">Cart</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main class="checkout-page">
+        <div class="checkout-container">
+            <h2 class="checkout-heading">Complete Your Order</h2>
+            <div id="cart-summary" class="cart-summary">
+                <h3>Order Summary</h3>
+                <!-- Cart items will load here -->
+            </div>
+
+            <form id="checkout-form" class="checkout-form" action="{ url_for('place_order') }" method="POST">
+                <input type="hidden" id="cart-items" name="cart_items">
+                <input type="hidden" id="total-price" name="total_price">
+
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Delivery Address:</label>
+                    <textarea id="address" name="address" placeholder="Enter your delivery address" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pincode">Pincode:</label>
+                    <input type="text" id="pincode" name="pincode" placeholder="Enter your area's pincode" required>
+                </div>
+                <div class="form-group terms">
+                    <input type="checkbox" id="accept-terms" name="accept-terms" required>
+                    <label for="accept-terms">
+                        I accept the <a href="#">Terms and Conditions</a>.
+                    </label>
+                </div>
+                <button type="submit" class="checkout-btn">Place Order</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Modal for Terms and Conditions -->
+    <div id="terms-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Terms and Conditions for Drone Delivery Services</h2>
+            <p>
+                By using our drone delivery services, you agree to the following terms and conditions:
+            </p>
+            <ol>
+                <li>All deliveries are subject to weather conditions and airspace regulations.</li>
+                <li>We are not responsible for delays caused by factors beyond our control.</li>
+                <li>Customers must ensure the delivery address is accurate and accessible.</li>
+                <li>Any damage during transit must be reported within 24 hours of delivery.</li>
+                <li>We reserve the right to cancel or reschedule deliveries due to safety concerns.</li>
+                <li>By accepting these terms, you agree to our privacy policy and data usage practices.</li>
+            </ol>
+            <p>
+                For more details, please contact our support team.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 RapidAid. All rights reserved.</p>
+    </footer>
+</body>
+</html>
